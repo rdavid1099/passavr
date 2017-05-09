@@ -21,3 +21,6 @@
 
 # Ignore Passr Encryption Configuration
 /config/encryptor.yml
+
+# Ignore SimpleCov coverage report
+coverage
