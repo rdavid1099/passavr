@@ -16,7 +16,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
-# Add additional requires below this line. Rails is not loaded until this point!
+Dir.glob('./spec/helpers/*.rb').each { |file| require file}
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -65,6 +65,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  # Custom test helpers found in './spec/helpers'
+  config.include ModelCreation
 
   # Devise test helpers
   config.include Devise::Test::ControllerHelpers, type: :controller
