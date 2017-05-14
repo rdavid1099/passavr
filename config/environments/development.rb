@@ -26,12 +26,16 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Using Resque for async
+  config.active_job.queue_adapter     = :resque
+  config.active_job.queue_name_prefix = "passavr_#{Rails.env}"
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # output to tmp/mails directory
   config.action_mailer.delivery_method = :file
   # ... and to specify output location
   config.action_mailer.file_settings = { :location => Rails.root.join('tmp/mail') }
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
