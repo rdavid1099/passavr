@@ -21,6 +21,8 @@ gem 'devise-async'
 gem 'passr'
 gem 'figaro'
 
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
