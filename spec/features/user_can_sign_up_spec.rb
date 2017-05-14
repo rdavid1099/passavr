@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe 'user clicks sign up' do
+  before { ActionMailer::Base.deliveries = [] }
+
   context 'fills out all proper information' do
     it 'sends out confirmation email' do
       visit root_path
