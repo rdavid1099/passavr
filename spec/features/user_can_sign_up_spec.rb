@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 describe 'user clicks sign up' do
-  before { ActionMailer::Base.deliveries = [] }
+  include ActiveJob::TestHelper
+
+  before { ActiveJob::Base.queue_adapter.enqueued_jobs = [] }
 
   context 'fills out all proper information' do
     it 'sends out confirmation email' do
@@ -13,7 +15,7 @@ describe 'user clicks sign up' do
       fill_in 'user_password_confirmation', with: 't3stP@ssword'
       click_on 'Create Account'
 
-      expect(ActionMailer::Base.deliveries.count).to eq(1)
+      expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
       expect(current_path).to eq(root_path)
     end
   end

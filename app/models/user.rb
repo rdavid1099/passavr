@@ -4,6 +4,10 @@ class User < ApplicationRecord
          :confirmable, :lockable
   validate :password_complexity
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   private
   def password_complexity
     if password.present? && !password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*/)
