@@ -1,8 +1,20 @@
 {
   "name": "passavr",
   "private": true,
+  "scripts": {
+    "build": "./bin/webpack",
+    "start": "./bin/bundle exec foreman start -f Procfile.dev",
+    "rails": "./bin/rails server -p 3000",
+    "webpack-server": "./bin/webpack-dev-server"
+  },
   "dependencies": {
-    "@rails/webpacker": "3.5"
+    "@rails/webpacker": "3.5",
+    "babel-preset-react": "^6.24.1",
+    "caniuse-lite": "^1.0.30000697",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "webpack": "^3.0.0"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
