@@ -1,6 +1,12 @@
 {
   "name": "passavr",
   "private": true,
+  "scripts": {
+    "build": "./bin/webpack",
+    "start": "./bin/bundle exec foreman start -f Procfile.dev",
+    "rails": "./bin/rails server -p 3000",
+    "webpack-server": "./bin/webpack-dev-server"
+  },
   "dependencies": {
     "@rails/webpacker": "3.5",
     "babel-preset-react": "^6.24.1",
