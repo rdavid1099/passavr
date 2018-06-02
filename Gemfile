@@ -31,6 +31,8 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'foreman'
 gem 'webpacker', '~> 3.5'
 gem 'passr'
+gem 'bootstrap', '~> 4.1.0'
+gem 'jquery-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
